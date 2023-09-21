@@ -1,12 +1,11 @@
 import pytest
 import os
 
+from allure_commons._allure import attach
 from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selene import Browser, Config, browser
-
-from utils import attach
 DEFAULT_BROWSER_VERSION = "100.0"
 
 
@@ -28,6 +27,8 @@ def setup_browser(request):
     # browser.config.window_height = 1080
     # browser.config.timeout = 15
 
+
+
     browser_version = request.config.getoption('--browser_version')
     browser_version = browser_version if browser_version != "" else DEFAULT_BROWSER_VERSION
     options = Options()
@@ -48,7 +49,6 @@ def setup_browser(request):
         command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",
         options=options
     )
-
     browser.config.driver = driver
     # browser = Browser(Config(driver))
 
