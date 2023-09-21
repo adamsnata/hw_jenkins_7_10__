@@ -8,6 +8,9 @@ from selenium.webdriver.chrome.options import Options
 from selene import Browser, Config, browser
 DEFAULT_BROWSER_VERSION = "100.0"
 
+ROJECT_ROOT_PATH = os.path.dirname(__file__)
+print(ROJECT_ROOT_PATH)
+RESOURCE_PATH = os.path.abspath(os.path.join(ROJECT_ROOT_PATH, 'resources'))
 
 def pytest_addoption(parser):
     parser.addoption(
