@@ -41,7 +41,7 @@ def setup_browser():
     )
 
     browser.config.driver = driver
-    yield
+    yield browser
 
     attach.add_screenshot(browser)
     attach.add_logs(browser)
